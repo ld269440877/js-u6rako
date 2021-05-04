@@ -1,39 +1,20 @@
-// Import stylesheets
-import "./style.css";
+var select = document.querySelector('select');
+var para = document.querySelector('p');
 
-// Write Javascript code!
-const appDiv = document.getElementById("app");
-appDiv.innerHTML = `<h1>JS Starter</h1>`;
+select.addEventListener('change', setWeather);
 
-let p;
+function setWeather() {
+  var choice = select.value;
 
-let set = ["p1", "p2", "p3"];
-
-function abc() {
-  for (let i = 0; i < set.length; i++) {
-    // alert(i)
-    p = document.createElement("p");
-
-    document.body.appendChild(p);
-    p.textContent = set[i];
+  if (choice === 'sunny') {
+    para.textContent = 'It is nice and sunny outside today. Wear shorts! Go to the beach, or the park, and get an ice cream.';
+  } else if (choice === 'rainy') {
+    para.textContent = 'Rain is falling outside; take a rain coat and a brolly, and don\'t stay out for too long.';
+  } else if (choice === 'snowing') {
+    para.textContent = 'The snow is coming down — it is freezing! Best to stay in with a cup of hot chocolate, or go build a snowman.';
+  } else if (choice === 'overcast') {
+    para.textContent = 'It isn\'t raining, but the sky is grey and gloomy; it could turn any minute, so take a rain coat just in case.';
+  } else {
+    para.textContent = '';
   }
 }
-
-abc();
-
-let name = "Bingo";
-name;
-let hello = " says hello!";
-hello;
-let greeting = name + hello;
-
-document.querySelector("h1").textContent = greeting;
-
-const focus_ = document.querySelector("input");
-// focus_.focus();
-focus_.value = 123;
-
-focus_.style.backgroundColor = "yellow";
-focus_.style.fontSize = "200%";
-focus_.style.padding = "10px";
-focus_.style.boxShadow = "10px 60px 20px black";
